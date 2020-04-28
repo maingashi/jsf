@@ -5,15 +5,24 @@
  */
 package com.genians.jsf.demo.repository;
 
-import org.mybatis.cdi.Mapper;
+import com.genians.jsf.demo.vo.BoardVo;
+import java.util.List;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author 이준수
  */
 
-@Mapper
-public interface BoardMapper {
+@Repository
+public class BoardMapper {
 
-    public String toDay();
+    private SqlSession sqlSession;
+    
+    public List<BoardVo> boardList(){
+        
+        return sqlSession.selectList("selectBoardList");
+    }
+    
 }

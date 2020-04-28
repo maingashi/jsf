@@ -11,6 +11,8 @@ import com.google.gson.Gson;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
@@ -18,9 +20,10 @@ import javax.inject.Inject;
  *
  */
 @RequestScoped
+@Service
 public class UserService {
 
-    @Inject
+    @Autowired
     private UserMapper mapper;
 
     public List<UserVo> userList() {
@@ -55,7 +58,7 @@ public class UserService {
 
         String msg = null;
 
-        int chk = mapper.ChkUser(vo);
+        int chk = mapper.chkUser(vo);
         if (chk > 1) {
             msg = "중복된 ID 입니다.";
         }

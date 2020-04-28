@@ -12,7 +12,6 @@ import org.mybatis.cdi.Mapper;
  * @author 이준수
  */
 
-@Mapper
 public interface DemoMapper {
 
     public String toDay();

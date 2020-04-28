@@ -5,38 +5,23 @@
  */
 package com.genians.jsf.demo.vo;
 
+import java.util.List;
+import lombok.Data;
+
 /**
  *
  * @author 이준수
  */
+@Data
 public class BoardVo {
 
     public String num;
     public String context;
-    public String dummy;
-
-    public String getNum() {
-        return num;
-    }
-
-    public void setNum(String num) {
-        this.num = num;
-    }
-
-    public String getContext() {
-        return context;
-    }
-
-    public void setContext(String context) {
-        this.context = context;
-    }
-
-    public String getDummy() {
-        return dummy;
-    }
-
-    public void setDummy(String dummy) {
-        this.dummy = dummy;
-    }
+    public String userId;
+    public String subject;
+    public String createDate;
+    public String editDate;
+    public String deleteYn;
+    public List<BoardVo> boardList;
 
 }

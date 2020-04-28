@@ -7,6 +7,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -16,7 +17,7 @@ import javax.inject.Named;
 @RequestScoped
 public class UserController {
 
-    @Inject
+    @Autowired
     private UserService service;
 
     public List<UserVo> getUserList() {

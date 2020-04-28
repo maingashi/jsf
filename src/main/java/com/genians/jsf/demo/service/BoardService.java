@@ -6,28 +6,25 @@
 package com.genians.jsf.demo.service;
 
 import com.genians.jsf.demo.repository.BoardMapper;
-import com.genians.jsf.demo.repository.DemoMapper;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
+import com.genians.jsf.demo.vo.BoardVo;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author 이준수
  */
-@RequestScoped
+@Service
 public class BoardService {
 
-    @Inject
-    private DemoMapper mapper;
-
-    @Inject
-    private BoardMapper mapper2;
-
-    public String getDate() {
-        return mapper.toDay();
+    @Autowired
+    private BoardMapper mapper;
+    
+    public List<BoardVo> boardList(){
+        
+        return mapper.boardList();
     }
-
-    public String getDate2() {
-        return mapper2.toDay();
-    }
+    
+    
 }

@@ -7,23 +7,37 @@ package com.genians.jsf.demo.repository;
 
 import com.genians.jsf.demo.vo.UserVo;
 import java.util.List;
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.cdi.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author 이준수
  */
-@Mapper
-public interface UserMapper {
+@Repository
+public class UserMapper {
 
-    public List<UserVo> selectListUserId();
-    
-    public void insertUserInfo(UserVo vo);
+    private SqlSession sqlSession;
 
-    public void updateUserInfo(UserVo vo);
-    
-    public void deleteUserInfo(UserVo vo);
-    
-    public int ChkUser(UserVo vo);
-    
+    public List<UserVo> selectListUserId() {
+        return sqlSession.selectList("selectListUserId");
+    }
+
+    public void insertUserInfo(UserVo vo){
+        sqlSession.insert("insertUserInfo");
+    }
+
+    public void updateUserInfo(UserVo vo){
+        sqlSession.update("updateUserInfo");
+    }
+
+    public void deleteUserInfo(UserVo vo){
+        sqlSession.update("deleteUserInfo");
+    }
+
+    public int chkUser(UserVo vo){
+        return sqlSession.selectOne("chkUser");
+    }
+
 }
